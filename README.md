@@ -4,8 +4,8 @@
 
 <table>
   <tr>
-    <td align="center"><b>Built-in <code>/tree</code></b><br><img src="docs/tree-no-timestamps.png" width="480" alt="/tree without timestamps"></td>
-    <td align="center"><b><code>/treetime</code></b><br><img src="docs/treetime-with-timestamps.png" width="480" alt="/treetime with timestamps"></td>
+    <td align="center"><b>Built-in <code>/tree</code></b><br><img src="https://raw.githubusercontent.com/adamcjm/pi-treetime/main/docs/tree-no-timestamps.png" width="480" alt="/tree without timestamps"></td>
+    <td align="center"><b><code>/treetime</code></b><br><img src="https://raw.githubusercontent.com/adamcjm/pi-treetime/main/docs/treetime-with-timestamps.png" width="480" alt="/treetime with timestamps"></td>
   </tr>
 </table>
 
