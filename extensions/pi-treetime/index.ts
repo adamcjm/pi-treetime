@@ -13,7 +13,7 @@
  * human-readable format (HH:MM today, M/D HH:MM this year, YY/M/D HH:MM older).
  */
 import type { ExtensionAPI, ExtensionCommandContext } from "@earendil-works/pi-coding-agent";
-import { copyToClipboard, getAgentDir } from "@earendil-works/pi-coding-agent";
+import { CONFIG_DIR_NAME, copyToClipboard, getAgentDir } from "@earendil-works/pi-coding-agent";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { TreetimeSelectorComponent, type FilterMode } from "./src/tree-selector.ts";
@@ -28,7 +28,7 @@ interface SettingsFile {
 /** Read merged global + project settings.json (project overrides global). */
 function readSettings(ctx: ExtensionCommandContext): SettingsFile {
   let merged: SettingsFile = {};
-  for (const path of [join(getAgentDir(), "settings.json"), join(ctx.cwd, ".pi", "settings.json")]) {
+  for (const path of [join(getAgentDir(), "settings.json"), join(ctx.cwd, CONFIG_DIR_NAME, "settings.json")]) {
     try {
       const parsed = JSON.parse(readFileSync(path, "utf8")) as SettingsFile;
       merged = { ...merged, ...parsed };

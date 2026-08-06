@@ -1,11 +1,18 @@
 {
   "name": "pi-treetime",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "/treetime: session tree navigation identical to /tree, with human-readable timestamps on every entry",
   "keywords": [
-    "pi-package"
+    "pi-package",
+    "pi",
+    "session",
+    "tree",
+    "timestamp"
   ],
   "license": "MIT",
+  "files": [
+    "extensions"
+  ],
   "pi": {
     "extensions": [
       "./extensions/pi-treetime"
