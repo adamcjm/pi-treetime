@@ -27,24 +27,13 @@
 
 ## Install
 
-### Via `pi install` (npm or git)
-
 ```bash
-# from npm
-pi install npm:pi-treetime
-
-# or from a git repository
-pi install git:github.com/<user>/pi-treetime
+pi install git:github.com/adamcjm/pi-treetime
 ```
 
-### Manually
+Or copy `extensions/pi-treetime` into `~/.pi/agent/extensions/` (or `.pi/extensions/` for a project).
 
-Put the extension folder (containing `index.ts`) into `~/.pi/agent/extensions/pi-treetime/`, then restart pi or run `/reload`:
-
-```bash
-mkdir -p ~/.pi/agent/extensions/pi-treetime
-cp -r extensions/pi-treetime/* ~/.pi/agent/extensions/pi-treetime/
-```
+After installing, run `/reload` (or restart pi) to activate.
 
 ### Local development
 

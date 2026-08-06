@@ -27,24 +27,13 @@
 
 ## 安装
 
-### 通过 `pi install`（npm 或 git）
-
 ```bash
-# 从 npm
-pi install npm:pi-treetime
-
-# 或从 git 仓库
-pi install git:github.com/<user>/pi-treetime
+pi install git:github.com/adamcjm/pi-treetime
 ```
 
-### 手动安装
+或将 `extensions/pi-treetime` 目录复制到 `~/.pi/agent/extensions/`（项目级可用 `.pi/extensions/`）。
 
-将扩展目录（含 `index.ts`）放到 `~/.pi/agent/extensions/pi-treetime/`，然后重启 pi 或执行 `/reload`：
-
-```bash
-mkdir -p ~/.pi/agent/extensions/pi-treetime
-cp -r extensions/pi-treetime/* ~/.pi/agent/extensions/pi-treetime/
-```
+安装后执行 `/reload`（或重启 pi）生效。
 
 ### 本地开发
 
