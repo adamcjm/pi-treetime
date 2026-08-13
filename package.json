@@ -1,6 +1,6 @@
 {
   "name": "pi-treetime",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "/treetime: session tree navigation identical to /tree, with human-readable timestamps on every entry",
   "keywords": [
     "pi-package",

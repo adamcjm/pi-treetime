@@ -29,7 +29,7 @@
 ## Install
 
 ```bash
-pi install git:github.com/adamcjm/pi-treetime
+pi install npm:pi-treetime
 ```
 
 Or copy `extensions/pi-treetime` into `~/.pi/agent/extensions/` (or `.pi/extensions/` for a project).
