@@ -15,6 +15,7 @@
   - `↑`/`↓` 移动，`←`/`→` 翻页
   - `Ctrl+←`/`Ctrl+→`（或 `Alt+←`/`Alt+→`）折叠分支 / 跳转分支段
   - `Enter` 选择（含相同的 "Summarize branch?" 摘要询问，尊重 `branchSummary.skipPrompt` 设置）
+  - 摘要询问中可选 `Copy message`：复制选中消息并直接关闭，不导航、不中断会话状态
   - `Shift+L` 打标签 / 清除标签，`Shift+T` 显示标签时间戳
   - `Ctrl+X` 复制选中消息
   - `Ctrl+O` 循环过滤（default / no-tools / user-only / labeled-only / all），或 `Ctrl+D/T/U/L/A` 直达

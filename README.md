@@ -15,6 +15,7 @@
   - `↑`/`↓` move, `←`/`→` page
   - `Ctrl+←`/`Ctrl+→` (or `Alt+←`/`Alt+→`) fold branch / jump between branch segments
   - `Enter` select (with the same "Summarize branch?" prompt, honoring the `branchSummary.skipPrompt` setting)
+  - `Copy message` in the summary prompt: copies the selected message and closes directly, without navigating or touching session state
   - `Shift+L` set/clear a label, `Shift+T` toggle label timestamps
   - `Ctrl+X` copy the selected message
   - `Ctrl+O` cycle filters (default / no-tools / user-only / labeled-only / all), or jump directly with `Ctrl+D/T/U/L/A`

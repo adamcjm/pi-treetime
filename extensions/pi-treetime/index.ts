@@ -86,7 +86,13 @@ async function openTree(ctx: ExtensionCommandContext, initialSelectedId?: string
       theme,
       keybindings,
       (entryId) => {
-        void handleSelect(ctx, done, entryId);
+        const node = selector.getTreeList().getSelectedNode();
+        void handleSelect(
+          ctx,
+          done,
+          entryId,
+          node ? selector.getTreeList().getEntryCopyText(node) : undefined,
+        );
       },
       () => done(null),
       (entryId, label) => {
@@ -100,26 +106,32 @@ async function openTree(ctx: ExtensionCommandContext, initialSelectedId?: string
       initialSelectedId,
       initialFilterMode,
     );
-    selector.onCopy = async (text) => {
-      if (!text) {
-        ctx.ui.notify("Selected entry has no text to copy", "warning");
-        return;
-      }
-      try {
-        await copyToClipboard(text);
-        ctx.ui.notify("Copied selected message to clipboard", "info");
-      } catch (error) {
-        ctx.ui.notify(error instanceof Error ? error.message : String(error), "error");
-      }
+    selector.onCopy = (text) => {
+      void copyTextToClipboard(ctx, text);
     };
     return selector;
   });
+}
+
+/** Copy entry text to the clipboard and report the result via the status bar. */
+async function copyTextToClipboard(ctx: ExtensionCommandContext, text?: string) {
+  if (!text) {
+    ctx.ui.notify("Selected entry has no text to copy", "warning");
+    return;
+  }
+  try {
+    await copyToClipboard(text);
+    ctx.ui.notify("Copied selected message to clipboard", "info");
+  } catch (error) {
+    ctx.ui.notify(error instanceof Error ? error.message : String(error), "error");
+  }
 }
 
 async function handleSelect(
   ctx: ExtensionCommandContext,
   done: (result: null) => void,
   entryId: string,
+  copyText?: string,
 ) {
   const sessionManager = ctx.sessionManager;
 
@@ -140,12 +152,18 @@ async function handleSelect(
     while (true) {
       const summaryChoice = await ctx.ui.select("Summarize branch?", [
         "No summary",
+        "Copy message",
         "Summarize",
         "Summarize with custom prompt",
       ]);
       if (summaryChoice === undefined) {
         // User pressed escape - re-show tree selector with same selection
         await openTree(ctx, entryId);
+        return;
+      }
+      if (summaryChoice === "Copy message") {
+        // Copy the selected message and close without navigating or summarizing.
+        await copyTextToClipboard(ctx, copyText);
         return;
       }
       wantsSummary = summaryChoice !== "No summary";
