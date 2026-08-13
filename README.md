@@ -1,6 +1,6 @@
 # pi-treetime
 
-`/treetime` — session tree navigation for [pi](https://github.com/earendil-works/pi), **identical to the built-in `/tree`**, except every entry shows a **human-readable timestamp**.
+`/treetime` — session tree navigation for [pi](https://github.com/earendil-works/pi), **identical to the built-in `/tree`**, except every entry shows a **human-readable timestamp**. [中文](docs/README.zh-CN.md)
 
 <table>
   <tr>
